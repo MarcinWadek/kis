@@ -1,0 +1,25 @@
+{
+  "name": "kis-atf",
+  "version": "1.0.0",
+  "description": "KIS Automated Testing Framework (KIS-ATF)",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test ",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "codegen": "npx playwright codegen",
+    "test:report": "npx playwright show-report",
+    "install:drivers": "npx playwright install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcinwadek/kis-atf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^24.19.0"
+  }
+}
