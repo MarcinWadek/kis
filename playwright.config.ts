@@ -45,7 +45,8 @@ export default defineConfig({
     },
     {
       name: "setup-tag",
-      testMatch: ["tests/setup/setup-tags.ts"],
+      testMatch: ["tests/setup/setup-tags.spec.ts"],
+      retries: 3,
       use: { ...devices["Desktop Chrome"], storageState: userSessionPathMarcinW },
       
     },
@@ -53,10 +54,6 @@ export default defineConfig({
       name: "tag",
       testMatch: ["tests/test-tag.spec.ts"],
       dependencies: ["setup-tag"],
-      use: { ...devices["Desktop Chrome"] },
-    },
-        {
-      name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
   ],

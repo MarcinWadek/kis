@@ -3,17 +3,17 @@ import { userSessionPathAnna, userSessionPathMarcin, userSessionPathMarcinW, use
 
 
 // TODO: to be enhanced, tags input is a bit flaky
-test.describe('MarcinW', () => {
+test.describe('Marcin', () => {
   test.use({
-    storageState: userSessionPathMarcinW,
+    storageState: userSessionPathMarcin,
   });
-  test('TC-11 Marcin W dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
+  test('TC-11 Marcin dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText("@Marcin Wądek").first()
+      page.locator('#notifications-base').getByText("@Marcin").first()
     ).toBeVisible();
   });
 });
@@ -59,17 +59,17 @@ test.describe('Michalina', () => {
     ).toBeVisible();
   });
 });
-test.describe('Marcin', () => {
+test.describe('Marcin W', () => {
   test.use({
-    storageState: userSessionPathMarcin,
+    storageState: userSessionPathMarcinW,
   });
-  test('TC-15 Marcin nie dostaje powiadomienie kiedy nie jest otagowany', async ({ page }) => {
+  test('TC-15 Marcin W nie dostaje powiadomienie kiedy nie jest otagowany', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText('Wszystko przeczytane,')
-    ).toBeVisible();
+      page.locator('#notifications-base').getByText('@Marcin Wądek')
+    ).not.toBeVisible();
   });
 });

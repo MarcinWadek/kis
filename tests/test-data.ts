@@ -1,2 +1,2 @@
 
-export const comment = "prueba ultima"; 
+export const comment = "comentario aleatorio seis"; 
