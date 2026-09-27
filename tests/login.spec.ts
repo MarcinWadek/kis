@@ -1,4 +1,6 @@
+
 import { expect, test } from '@playwright/test';
+import { userSessionPath } from '../playwright.config';
 
 test('test', async ({ page }) => {
   await page.goto('https://kislist.com/pl');
@@ -8,6 +10,8 @@ test('test', async ({ page }) => {
   await page.getByTestId('email-input').press('Tab');
   await page.getByTestId('password-input').fill('');
   await page.getByTestId('login-button').click();
-  await expect(page).toHaveURL('https://kislist.com/2fa');
-  await page.context().storageState({ path: 'USER_0_SESSION_PATH' });
+  await expect(page).toHaveURL('https://kislist.com/lists', {
+    timeout: 30_000,
+  });
+  await page.context().storageState({ path: userSessionPath });
 });

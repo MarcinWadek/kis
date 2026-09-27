@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
+import { userSessionPath } from '../playwright.config';
 
-// test.use({
-//   storageState: 'playwright/.auth/user.json',
-// });
+test.use({
+  storageState: userSessionPath
+});
 
 test('test', async ({ page }) => {
   await page.getByRole('link', { name: 'PROJEKT REKRUTACJA' }).click();
