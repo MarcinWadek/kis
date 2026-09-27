@@ -8,8 +8,8 @@ test.describe('MarcinW', () => {
   test.use({
     storageState: userSessionPathMarcinW,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
-    await page.goto('https://kislist.com/lists');
+  test('Marcin W (administrator) widzi komentarz do propozycji w powiadomieniach', async ({ page }) => {
+    await page.goto('/lists', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
@@ -23,7 +23,7 @@ test.describe('Piotr', () => {
     storageState: userSessionPathPiotr,
   });
   test('sprawdza powiadomienie', async ({ page }) => {
-    await page.goto('https://kislist.com/lists');
+    await page.goto('/lists', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
@@ -37,7 +37,7 @@ test.describe('Anna', () => {
     storageState: userSessionPathAnna,
   });
   test('sprawdza powiadomienie', async ({ page }) => {
-    await page.goto('https://kislist.com/lists');
+    await page.goto('/lists', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
@@ -51,7 +51,7 @@ test.describe('Michalina', () => {
     storageState: userSessionPathMichalina,
   });
   test('sprawdza powiadomienie', async ({ page }) => {
-    await page.goto('https://kislist.com/lists');
+    await page.goto('/lists', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
@@ -65,7 +65,7 @@ test.describe('Marcin', () => {
     storageState: userSessionPathMarcin,
   });
   test('sprawdza powiadomienie', async ({ page }) => {
-    await page.goto('https://kislist.com/lists');
+    await page.goto('/lists', { waitUntil: 'domcontentloaded' });
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();

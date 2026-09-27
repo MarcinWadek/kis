@@ -69,7 +69,7 @@ test.describe('Marcin', () => {
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.getByText('Wszystko przeczytane,')
+      page.locator('#notifications-base').getByText('Wszystko przeczytane,')
     ).toBeVisible();
   });
 });
