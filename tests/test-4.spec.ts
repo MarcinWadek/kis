@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { expect, test } from '@playwright/test';
 import { userSessionPath } from '../playwright.config';
 
@@ -6,6 +7,7 @@ test.use({
 });
 
 test('test', async ({ page }) => {
+  const comment = faker.lorem.words(2);
 await test.step('Login', async () => {
   await page.goto('https://kislist.com/lists');
   await page.getByRole('link', { name: 'PROJEKT REKRUTACJA' }).click();
@@ -20,13 +22,13 @@ await test.step('Login', async () => {
 await test.step('klient', async () => {
   await page.goto('https://kislist.com/list-preview/268ioxIozPw1rIzO468weJ6MTYmUrPQmPNRM?lang=pl');
   await page.locator('#item_MDQT1SHTXGVQuvSe').getByRole('button', { name: 'Napisz komentarz' }).click();
-  await page.getByRole('textbox').fill('komentarz testowy PW');
-  await page.getByRole('textbox').press('ControlOrMeta+c');
+
+  await page.getByRole('textbox').fill(comment);
   await page.getByRole('button', { name: 'Wyślij' }).click();
 });
 await test.step('weryfikacja powiadomienia', async () => {
   await page.goto('https://kislist.com/lists');
   await page.getByRole('button', { name: 'Pokaż powiadomienia' }).click();
-  await expect (page.locator('#notifications-base').getByText('Wszystko przeczytane, wszystko ogarnięte.Masz chwilę ciszy – korzystaj!')).not.toBeVisible();
+  await expect (page.locator('#notifications-base').getByText(comment)).toBeVisible();
 });
 });

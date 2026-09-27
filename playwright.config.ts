@@ -1,5 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 import * as path from "node:path";
+import { env } from "./env";
+
 export const userSessionPath = path.join(__dirname, 'tmp/userSession.json');
 
 export default defineConfig({
@@ -8,7 +10,7 @@ export default defineConfig({
   fullyParallel: true,
   reporter: [["html", { open: "never" }]],
   use: {
-    baseURL: "",
+    baseURL: env.baseURL,
     trace: "on",
   },
 
