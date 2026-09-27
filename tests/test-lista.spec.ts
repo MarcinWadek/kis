@@ -8,13 +8,13 @@ test.describe('MarcinW', () => {
   test.use({
     storageState: userSessionPathMarcinW,
   });
-  test(' Marcin W (administrator) widzi komentarz na liście', async ({ page }) => {
+  test('TC-01 Marcin W (administrator) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText(comment)
+      page.locator('#notifications-base').getByText(comment).first()
     ).toBeVisible();
   });
 });
@@ -22,26 +22,26 @@ test.describe('Piotr', () => {
   test.use({
     storageState: userSessionPathPiotr,
   });
-  test('Piotr (użytkownik) widzi komentarz na liście', async ({ page }) => {
+  test('TC-02 Piotr (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText(comment)
+      page.locator('#notifications-base').getByText(comment).first()
     ).toBeVisible();
 });
 test.describe('Anna', () => {
   test.use({
     storageState: userSessionPathAnna,
   });
-  test('Anna (użytkownik) widzi komentarz na liście', async ({ page }) => {
+  test('TC-03 Anna (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText(comment)
+      page.locator('#notifications-base').getByText(comment).first()
     ).toBeVisible();
   });
 });
@@ -49,13 +49,13 @@ test.describe('Michalina', () => {
   test.use({
     storageState: userSessionPathMichalina,
   });
-  test('Michalina (użytkownik) widzi komentarz na liście', async ({ page }) => {
+  test('TC-04 Michalina (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText(comment)
+      page.locator('#notifications-base').getByText(comment).first()
     ).toBeVisible();
   });
 });
@@ -63,13 +63,13 @@ test.describe('Marcin', () => {
   test.use({
     storageState: userSessionPathMarcin,
   });
-  test('Marcin (użytkownik) widzi komentarz na liście', async ({ page }) => {
+  test('TC-05 Marcin (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
       .click();
     await expect(
-      page.locator('#notifications-base').getByText(comment)
+      page.locator('#notifications-base').getByText(comment).first()
     ).toBeVisible();
   });
 });

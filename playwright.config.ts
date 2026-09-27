@@ -44,10 +44,6 @@ export default defineConfig({
       use: { ...devices["Desktop Chrome"] },
     },
     {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
       name: "setup-tag",
       testMatch: ["tests/setup/setup-tags.ts"],
       use: { ...devices["Desktop Chrome"], storageState: userSessionPathMarcinW },

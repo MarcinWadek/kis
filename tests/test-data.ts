@@ -1,2 +1,2 @@
 
-export const comment = "prueba final" 
+export const comment = "prueba ultima"; 

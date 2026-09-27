@@ -7,7 +7,7 @@ test.describe('MarcinW', () => {
   test.use({
     storageState: userSessionPathMarcinW,
   });
-  test('Marcin W dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
+  test('TC-11 Marcin W dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -21,7 +21,7 @@ test.describe('Piotr', () => {
   test.use({
     storageState: userSessionPathPiotr,
   });
-  test('Piotr dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
+  test('TC-12 Piotr dostaje powiadomienie kiedy jest otagowany', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -35,7 +35,7 @@ test.describe('Anna', () => {
   test.use({
     storageState: userSessionPathAnna,
   });
-  test('Anna dostaje powiadomienie kiedy jest otagowana', async ({ page }) => {
+  test('TC-13 Anna dostaje powiadomienie kiedy jest otagowana', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -49,7 +49,7 @@ test.describe('Michalina', () => {
   test.use({
     storageState: userSessionPathMichalina,
   });
-  test('Michalina dostaje powiadomienie kiedy jest otagowana', async ({ page }) => {
+  test('TC-14 Michalina dostaje powiadomienie kiedy jest otagowana', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -63,7 +63,7 @@ test.describe('Marcin', () => {
   test.use({
     storageState: userSessionPathMarcin,
   });
-  test('Marcin nie dostaje powiadomienie kiedy nie jest otagowany', async ({ page }) => {
+  test('TC-15 Marcin nie dostaje powiadomienie kiedy nie jest otagowany', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
