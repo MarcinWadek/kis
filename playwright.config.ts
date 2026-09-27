@@ -20,9 +20,48 @@ export default defineConfig({
 
   projects: [
     {
+      name: "setup-propozycja",
+      testMatch: ["tests/setup/setup-propozycja.ts"],
+      use: { ...devices["Desktop Chrome"] },
+      
+    },
+    {
+      name: "propozycja",
+      testMatch: ["tests/test-propozycja.spec.ts"],
+      dependencies: ["setup-propozycja"],
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
+      name: "setup-lista",
+      testMatch: ["tests/setup/setup-lista.ts"],
+      use: { ...devices["Desktop Chrome"], },
+      
+    },
+    {
+      name: "lista",
+      testMatch: ["tests/test-lista.spec.ts"],
+      dependencies: ["setup-lista"],
+      use: { ...devices["Desktop Chrome"] },
+    },
+    {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
-    
+    {
+      name: "setup-tag",
+      testMatch: ["tests/setup/setup-tags.ts"],
+      use: { ...devices["Desktop Chrome"], storageState: userSessionPathMarcinW },
+      
+    },
+    {
+      name: "tag",
+      testMatch: ["tests/test-tag.spec.ts"],
+      dependencies: ["setup-tag"],
+      use: { ...devices["Desktop Chrome"] },
+    },
+        {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+    },
   ],
 });
