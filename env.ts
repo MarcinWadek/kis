@@ -20,7 +20,11 @@ function requiredEnv(name: string): string {
 
 export const env = {
   baseURL: process.env.BASE_URL ?? "https://kislist.com",
-  kissEmail: process.env.kissEmail ?? "",
+  kissMarcinW: process.env.kissMarcinW ?? "",
+  kissPiotr: process.env.kissPiotr ?? "",
+  kissAnna: process.env.kissAnna ?? "",
+  kissMichalina: process.env.kissMichalina ?? "",
+  kissMarcin: process.env.kissMarcin ?? "",
   kissPassword: requiredEnv("kissPassword"),
 };
 

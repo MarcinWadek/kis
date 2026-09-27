@@ -2,7 +2,11 @@ import { defineConfig, devices } from "@playwright/test";
 import * as path from "node:path";
 import { env } from "./env";
 
-export const userSessionPath = path.join(__dirname, 'tmp/userSession.json');
+export const userSessionPathMarcinW = path.join(__dirname, 'tmp/userSessionMarcinW.json');
+export const userSessionPathPiotr = path.join(__dirname, 'tmp/userSessionPiotr.json');
+export const userSessionPathAnna = path.join(__dirname, 'tmp/userSessionAnna.json');
+export const userSessionPathMichalina = path.join(__dirname, 'tmp/userSessionMichalina.json');
+export const userSessionPathMarcin = path.join(__dirname, 'tmp/userSessionMarcin.json');
 
 export default defineConfig({
   testDir: "./tests",

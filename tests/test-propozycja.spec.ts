@@ -1,12 +1,10 @@
-import { expect, test } from '@playwright/test';
-import { userSessionPath } from '../playwright.config';
 import { faker } from '@faker-js/faker';
+import { expect, test } from '@playwright/test';
+import { userSessionPathAnna, userSessionPathMarcin, userSessionPathMarcinW, userSessionPathMichalina, userSessionPathPiotr } from '../playwright.config';
+const comment = faker.lorem.words(2);
 
-test.use({
-  storageState: userSessionPath
-});
-test('test', async ({ page }) => {
-  const comment = faker.lorem.words(2);
+
+test('SETUP', async ({ page }) => {
   await test.step('Login', async () => {
   await page.goto('https://kislist.com/lists');
   await page.getByRole('link', { name: 'PROJEKT REKRUTACJA' }).click();
@@ -28,9 +26,75 @@ await test.step('klient', async () => {
   await page.getByRole('textbox').fill(comment);
   await page.getByRole('button', { name: 'Wyślij' }).click();
 });
-await test.step('weryfikacja powiadomienia', async () => {
-  await page.goto('https://kislist.com/lists');
-  await page.getByRole('button', { name: 'Pokaż powiadomienia' }).click();
-  await expect (page.locator('#notifications-base').getByText(comment)).toBeVisible();
 });
+
+test.describe('MarcinW', () => {
+  test.use({
+    storageState: userSessionPathMarcinW,
+  });
+  test('sprawdza powiadomienie', async ({ page }) => {
+    await page.goto('https://kislist.com/lists');
+    await page
+      .getByRole('button', { name: 'Pokaż powiadomienia' })
+      .click();
+    await expect(
+      page.locator('#notifications-base').getByText(comment)
+    ).toBeVisible();
+  });
+});
+test.describe('Piotr', () => {
+  test.use({
+    storageState: userSessionPathPiotr,
+  });
+  test('sprawdza powiadomienie', async ({ page }) => {
+    await page.goto('https://kislist.com/lists');
+    await page
+      .getByRole('button', { name: 'Pokaż powiadomienia' })
+      .click();
+    await expect(
+      page.locator('#notifications-base').getByText(comment)
+    ).toBeVisible();
+  });
+});
+test.describe('Anna', () => {
+  test.use({
+    storageState: userSessionPathAnna,
+  });
+  test('sprawdza powiadomienie', async ({ page }) => {
+    await page.goto('https://kislist.com/lists');
+    await page
+      .getByRole('button', { name: 'Pokaż powiadomienia' })
+      .click();
+    await expect(
+      page.locator('#notifications-base').getByText(comment)
+    ).toBeVisible();
+  });
+});
+test.describe('Michalina', () => {
+  test.use({
+    storageState: userSessionPathMichalina,
+  });
+  test('sprawdza powiadomienie', async ({ page }) => {
+    await page.goto('https://kislist.com/lists');
+    await page
+      .getByRole('button', { name: 'Pokaż powiadomienia' })
+      .click();
+    await expect(
+      page.locator('#notifications-base').getByText(comment)
+    ).toBeVisible();
+  });
+});
+test.describe('Marcin', () => {
+  test.use({
+    storageState: userSessionPathMarcin,
+  });
+  test('sprawdza powiadomienie', async ({ page }) => {
+    await page.goto('https://kislist.com/lists');
+    await page
+      .getByRole('button', { name: 'Pokaż powiadomienia' })
+      .click();
+    await expect(
+      page.locator('#notifications-base').getByText(comment)
+    ).toBeVisible();
+  });
 });
