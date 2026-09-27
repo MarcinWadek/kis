@@ -18,6 +18,8 @@ npm ci
 npx playwright install chromium
 ```
 
+Następnie ręcznie dostarcz pliki zawierające dane dostępowe i sesje. Nie są one przechowywane w repozytorium ze względów bezpieczeństwa.
+
 ## Konfiguracja środowiska
 
 Utwórz w katalogu głównym plik `.env.qa`:
@@ -32,7 +34,22 @@ kissMarcin=marcin@example.com
 kissPassword=haslo-do-kont-testowych
 ```
 
-Plik `.env.qa` zawiera dane dostępowe i jest ignorowany przez Git. Domyślnie testy korzystają ze środowiska `qa`. Inne środowisko można wskazać zmienną `TEST_ENV`, np. w PowerShell:
+Plik `.env.qa` zawiera dane dostępowe i jest ignorowany przez Git. Można utworzyć go ręcznie albo wkleić gotowy plik przekazany osobnym, bezpiecznym kanałem.
+
+Do katalogu `tmp/` należy również wkleić aktualne pliki sesji:
+
+```text
+tmp/
+├── userSessionMarcinW.json
+├── userSessionPiotr.json
+├── userSessionAnna.json
+├── userSessionMichalina.json
+└── userSessionMarcin.json
+```
+
+Pliki sesji są ignorowane przez Git i nie należy ich commitować. Jeżeli sesja wygaśnie, odpowiedni plik trzeba wygenerować ponownie.
+
+Domyślnie testy korzystają ze środowiska `qa`. Inne środowisko można wskazać zmienną `TEST_ENV`, np. w PowerShell:
 
 ```powershell
 $env:TEST_ENV = "staging"
@@ -40,6 +57,8 @@ npm test
 ```
 
 W takim przypadku wymagany jest odpowiadający plik `.env.staging`.
+
+Po przygotowaniu zależności, `.env.qa` i katalogu `tmp/` testy są gotowe do uruchomienia.
 
 ## Uruchamianie testów
 
