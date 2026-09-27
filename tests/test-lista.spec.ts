@@ -8,7 +8,7 @@ test.describe('MarcinW', () => {
   test.use({
     storageState: userSessionPathMarcinW,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
+  test(' Marcin W (administrator) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -22,7 +22,7 @@ test.describe('Piotr', () => {
   test.use({
     storageState: userSessionPathPiotr,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
+  test('Piotr (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -30,13 +30,12 @@ test.describe('Piotr', () => {
     await expect(
       page.locator('#notifications-base').getByText(comment)
     ).toBeVisible();
-  });
 });
 test.describe('Anna', () => {
   test.use({
     storageState: userSessionPathAnna,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
+  test('Anna (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -50,7 +49,7 @@ test.describe('Michalina', () => {
   test.use({
     storageState: userSessionPathMichalina,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
+  test('Michalina (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -64,7 +63,7 @@ test.describe('Marcin', () => {
   test.use({
     storageState: userSessionPathMarcin,
   });
-  test('sprawdza powiadomienie', async ({ page }) => {
+  test('Marcin (użytkownik) widzi komentarz na liście', async ({ page }) => {
     await page.goto('https://kislist.com/lists');
     await page
       .getByRole('button', { name: 'Pokaż powiadomienia' })
@@ -73,4 +72,5 @@ test.describe('Marcin', () => {
       page.locator('#notifications-base').getByText(comment)
     ).toBeVisible();
   });
+});
 });
